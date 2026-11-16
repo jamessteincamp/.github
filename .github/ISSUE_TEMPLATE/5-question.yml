@@ -1,0 +1,22 @@
+name: Question
+description: An open question or a decision to make before work can go ahead.
+type: Question
+assignees: ["jamessteincamp"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: The question
+      description: One question, phrased so it can be answered.
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: Options and what each costs
+      description: Optional.
+  - type: textarea
+    id: blocks
+    attributes:
+      label: What it blocks
+      description: Issues or work waiting on the answer. Optional.

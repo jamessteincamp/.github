@@ -1,0 +1,34 @@
+# Reusable workflow: give a newly opened issue an assignee and a Type.
+# Each repo calls it from a short stub — see README.md.
+name: Issue defaults
+
+on:
+  workflow_call:
+    inputs:
+      default-assignee:
+        description: Login to assign when the issue has no assignee.
+        type: string
+        default: jamessteincamp
+  # This repo uses it on its own issues too.
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+
+jobs:
+  defaults:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: jamessteincamp/.github
+          sparse-checkout: scripts
+          path: .issue-defaults
+      - name: Assign and type
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}
+          DEFAULT_ASSIGNEE: ${{ inputs.default-assignee || 'jamessteincamp' }}
+        run: bash .issue-defaults/scripts/issue-defaults.sh

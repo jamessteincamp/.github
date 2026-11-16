@@ -1,0 +1,23 @@
+name: Feature
+description: Something new the project should do.
+type: Feature
+assignees: ["jamessteincamp"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What’s hard or impossible today, and for whom.
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: How you’ll know it’s solved
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: A fix you have in mind
+      description: Optional.

@@ -1,0 +1,17 @@
+name: Task
+description: A piece of work to do — a chore, a clean-up, a step in a larger plan.
+type: Task
+assignees: ["jamessteincamp"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What needs doing
+      description: The outcome, and how you’ll know it’s done.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Links, related issues, anything that explains why. Optional.
